@@ -8,9 +8,17 @@
             <div class="user-profile__follower-count">
                 <strong>Follower :</strong> {{ followers }}
             </div>
+            <form class="user-profile__create-twoot">
+                <label for="newTwoot"><strong>New twoot</strong></label>
+                <textarea id="newTwoot" rows="4"/>
+            </form>
         </div>
         <div class="user-profile__twoots-wrapper">
-            <TwootItem v-for="twoot in user.twoots" :key="twoot.id" :username="user.username" :twoot="twoot" @favourite="toggleFavourite"/>
+            <TwootItem v-for="twoot in user.twoots" 
+            :key="twoot.id" 
+            :username="user.username" 
+            :twoot="twoot" 
+            @favourite="toggleFavourite"/>
         </div>
     </div>
 </template>
@@ -83,6 +91,12 @@ export default {
     color:white;
     padding:0 10px;
     font-weight: bold;
+}
+
+.user-profile__create-twoot{
+    display:grid;
+    grid-gap:10px;
+    padding-top: 20px;
 }
 
 h1{
