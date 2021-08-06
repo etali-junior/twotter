@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="user-profile__twoots-wrapper">
-            <TwootItem v-for="twoot in user.twoots" :key="twoot.id" :username="user.username" :twoot="twoot"/>
+            <TwootItem v-for="twoot in user.twoots" :key="twoot.id" :username="user.username" :twoot="twoot" @favourite="toggleFavourite"/>
         </div>
     </div>
 </template>
@@ -46,6 +46,9 @@ export default {
     methods: {
         followUser() {
             this.followers++
+        },
+        toggleFavourite(id) {
+            console.log(`Favourite Tweet #${id}`)
         }
     },
     mounted(){
