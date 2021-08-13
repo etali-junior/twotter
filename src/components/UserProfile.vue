@@ -14,11 +14,12 @@
             </form>
         </div>
         <div class="user-profile__twoots-wrapper">
-            <TwootItem v-for="twoot in user.twoots" 
-            :key="twoot.id" 
-            :username="user.username" 
-            :twoot="twoot" 
-            @favourite="toggleFavourite"/>
+             <TwootItem 
+                v-for="twoot in user.twoots" 
+                :key="twoot.id" 
+                :username="user.username"
+                :twoot="twoot"
+                @favourite="toggleFavourite"/>
         </div>
     </div>
 </template>
@@ -71,13 +72,13 @@ export default {
     display: grid;
     grid-template-columns: 1fr 3fr;
     width: 100%;
-    padding:50px 5%;
+    grid-gap:50px;
+    padding:50px 0%;
 }
 
 .user-profile__user-panel{
     display: flex;
-    flex-direction: column;
-    margin-right: 50px;
+    flex-direction: column; 
     padding: 20px;
     background-color: white;
     border-radius:5px;
@@ -101,6 +102,11 @@ export default {
 
 h1{
     margin: 0;
+}
+
+.user-profile__twoots-wrapper{
+    display:grid;
+    grid-gap:10px;
 }
 
 </style>
