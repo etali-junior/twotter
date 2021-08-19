@@ -76,7 +76,7 @@ export default {
             this.followers++
         },
         toggleFavourite(id) {
-            console.log(`Favourite Tweet #${id}`)
+            console.log(`Favourite Twoot #${id}`)
         },
         createNewTwoot() {
             if(this.newTwootContent && this.selectedTwootType !== 'draft'){
@@ -95,7 +95,7 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
 .user-profile{
     display: grid;
     grid-template-columns: 1fr 3fr;
