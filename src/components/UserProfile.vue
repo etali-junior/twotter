@@ -8,24 +8,8 @@
             <div class="user-profile__follower-count">
                 <strong>Follower :</strong> {{ followers }}
             </div>
-            <form class="user-profile__create-twoot" @submit.prevent="createNewTwoot" :class="{ '--exceeded': newTwootCharactereCount > 180}">
-                <label for="newTwoot"><strong>New twoot</strong> ({{ newTwootCharactereCount }}/180)</label>
-                <textarea id="newTwoot" rows="4" v-model="newTwootContent"/>
-
-                <div class="user-profile__create-twoot-type">
-                    <label for="newTwootType"><strong>Type :</strong></label>
-                    <select id="newTwootType" v-model="selectedTwootType">
-                        <option :value="option.value" v-for="(option, index) in twootTypes" :key="index">
-                            {{ option.name }}
-                        </option>
-                    </select>
-                </div>
-
-                <button>
-                    Twoot !
-                </button>
-            </form>
         </div>
+        <CreateTwootPanel />
         <div class="user-profile__twoots-wrapper">
              <TwootItem 
                 v-for="twoot in user.twoots" 
@@ -39,6 +23,7 @@
 
 <script>
 import TwootItem from "./TwootItem";
+import CreateTwootPanel from "./CreateTwootPanel";
 
 export default {
     name:'UserProfile',
