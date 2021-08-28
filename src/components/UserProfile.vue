@@ -95,7 +95,7 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .user-profile{
     display: grid;
     grid-template-columns: 1fr 3fr;
