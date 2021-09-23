@@ -1,5 +1,5 @@
 # twotter
-
+build a very basic social network like twitter using vue3
 ## Project setup
 ```
 npm install
