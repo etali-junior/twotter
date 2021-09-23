@@ -1,15 +1,17 @@
 <template>
     <div class="user-profile">
-        <div class="user-profile__user-panel">
-            <h1 class="user-profile__username">@{{ user.username }}</h1>
-            <div class="user-profile__admin-badge" v-if="user.isAdmin">
-                Admin
+        <div class="user-profile__sidebar">
+            <div class="user-profile__user-panel">
+                <h1 class="user-profile__username">@{{ user.username }}</h1>
+                <div class="user-profile__admin-badge" v-if="user.isAdmin">
+                    Admin
+                </div>
+                <div class="user-profile__follower-count">
+                    <strong>Follower :</strong> {{ followers }}
+                </div>
             </div>
-            <div class="user-profile__follower-count">
-                <strong>Follower :</strong> {{ followers }}
-            </div>
+            <CreateTwootPanel/>
         </div>
-        <CreateTwootPanel />
         <div class="user-profile__twoots-wrapper">
              <TwootItem 
                 v-for="twoot in user.twoots" 
@@ -27,15 +29,9 @@ import CreateTwootPanel from "./CreateTwootPanel";
 
 export default {
     name:'UserProfile',
-    components:{ TwootItem },
+    components:{CreateTwootPanel, TwootItem },
     data() {
         return {
-            newTwootContent: '',
-            selectedTwootType: 'instant',
-            twootTypes:[
-                { value: 'draft', name: 'Draft' },
-                { value: 'instant', name: 'Instant twoot'}
-            ],
             followers: 0,
             user:{
                 id:0,

@@ -1,7 +1,7 @@
 <template>
     <form class="create-twoot-panel" @submit.prevent="createNewTwoot" :class="{ '--exceeded': newTwootCharacterCount > 180 }">
         <label for="newTwoot"><strong>New Twoot</strong> ({{ newTwootCharacterCount }}/180)</label>
-        <textarea id="newTwoot" rows="4" v-model="state.newTwootContent"/>
+        <textarea id="newTwoot" rows="4" v-model="newTwootContent"/>
 
         <div class="create-twoot-panel__submit">
         <div class="create-twoot-type">
