@@ -10,7 +10,7 @@
                     <strong>Follower :</strong> {{ followers }}
                 </div>
             </div>
-            <CreateTwootPanel/>
+            <CreateTwootPanel @add-twoot="addTwoot"/>
         </div>
         <div class="user-profile__twoots-wrapper">
              <TwootItem 
@@ -59,14 +59,8 @@ export default {
         toggleFavourite(id) {
             console.log(`Favourite Twoot #${id}`)
         },
-        createNewTwoot() {
-            if(this.newTwootContent && this.selectedTwootType !== 'draft'){
-                this.user.twoots.unshift({
-                    id: this.user.twoots.length + 1,
-                    content : this.newTwootContent
-                })
-                this.newTwootContent = '';
-            }
+        addTwoot(twoot){
+            this.user.twoots.unshift({ id: this.user.twoots.length +1, content: twoot });
         }
     },
     mounted(){

@@ -1,6 +1,6 @@
 <template>
-    <form class="create-twoot-panel" @submit.prevent="createNewTwoot" :class="{ '--exceeded': newTwootCharacterCount > 180 }">
-        <label for="newTwoot"><strong>New Twoot</strong> ({{ newTwootCharacterCount }}/180)</label>
+    <form class="create-twoot-panel" @submit.prevent="createNewTwoot" :class="{ '--exceeded': newTwootCharactereCount > 180 }">
+        <label for="newTwoot"><strong>New Twoot</strong> ({{ newTwootCharactereCount }}/180)</label>
         <textarea id="newTwoot" rows="4" v-model="newTwootContent"/>
 
         <div class="create-twoot-panel__submit">
@@ -13,7 +13,7 @@
             </select>
         </div>
 
-        <button>
+        <button type="submit">
             Twoot It!
         </button>
         </div>
@@ -39,15 +39,9 @@
             }
         },
         methods: {
-            followUser() {
-                this.followers++
-            },
             createNewTwoot() {
                 if(this.newTwootContent && this.selectedTwootType !== 'draft'){
-                    this.user.twoots.unshift({
-                        id: this.user.twoots.length + 1,
-                        content : this.newTwootContent
-                    })
+                    this.$emit('add-twoot', this.newTwootContent);
                     this.newTwootContent = '';
                 }
             }
