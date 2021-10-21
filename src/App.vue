@@ -7,7 +7,7 @@
             </div>
         </router-link>
         <div class="navigation__user">
-          {{ state.user.username }}
+          {{ user.username }}
         </div>
       </nav>
       <router-view/>
@@ -15,18 +15,19 @@
 </template>
 
 <script> 
- import { reactive } from 'vue';
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+
+
 export default {
   name: 'App',
   components: { }, 
   setup(){
-    const state = reactive({
-      user:{
-        username: "_MathiasEtali"
-      }
-    })
+     const store = useStore();
+     const user = computed(() => store.state.user );
+
     return {
-      state,
+      user
     }
   } 
 }

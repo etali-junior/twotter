@@ -28,7 +28,7 @@ import TwootItem from "../components/TwootItem";
 import CreateTwootPanel from "../components/CreateTwootPanel";
 import { reactive , computed } from 'vue';
 import { useRoute } from 'vue-router'
-import { users } from '../assets/users'
+import { users } from '../assets/users' //on recuère les données qui se trouve dans le fichier assets/users.js
 
 export default {
     name:'UserProfile',
@@ -39,7 +39,7 @@ export default {
         const route = useRoute();
         const userId = computed(() => route.params.userId);
 
-        const state = reactive({
+        const state = reactive({ //on recupère l'utilisateur en fonction de l'identifiant qui est sur l'url
             followers: 0,
             user: users[userId.value - 1] || users[0]
         })
