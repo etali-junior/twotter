@@ -33,11 +33,11 @@ const router = createRouter({
 
 //ce code sera executer avant un changement de route sur l'application
 router.beforeEach(async (to, from, next) => {
-  const user = store.state.user;
+  const user = store.state.User.user;
 
   if(!user){
-    await store.dispatch('setUser', users[0])
-  }
+    await store.dispatch('User/setUser', users[0]) //dispatch is use to run actions
+   }
 
   const isAdmin = false;
   const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
